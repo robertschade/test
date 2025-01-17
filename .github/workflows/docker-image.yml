@@ -17,6 +17,7 @@ jobs:
     env:
       REGISTRY: index.docker.io
       IMAGE_NAME: ${{ github.repository }}
+      ARCH: native
     steps:
     - name: Check out the repo
       uses: actions/checkout@v4
