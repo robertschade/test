@@ -11,8 +11,11 @@ RUN apt-get install -qq --no-install-recommends \
 RUN apt clean
 
 # clone
-RUN git clone -b main https://github.com/cp-paw/cp-paw.git /opt/cp-paw
+RUN git clone -b ${BRANCH} https://github.com/cp-paw/cp-paw.git /opt/cp-paw
 WORKDIR /opt/cp-paw
+
+# check native arch
+RUN /bin/bash -c "gcc -march=native -Q --help=target | grep march"
 
 # build
 RUN sed -i 's/march=native/march=${CPUARCH}/g' src/Buildtools/paw_fcflags.sh
