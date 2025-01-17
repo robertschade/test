@@ -42,6 +42,7 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
       env:
+        BRANCH: "main"
         CPUARCH: "native"
         
     - name: Generate artifact attestation

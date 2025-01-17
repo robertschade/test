@@ -1,5 +1,8 @@
 FROM ubuntu:24.04
 
+ARG BRANCH
+ARG CPUARCH
+
 RUN apt-get update -qq 
 #RUN apt upgrade -y
 RUN apt-get install -qq --no-install-recommends \
